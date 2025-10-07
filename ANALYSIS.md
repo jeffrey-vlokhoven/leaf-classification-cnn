@@ -1,6 +1,15 @@
 
 
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
 
+
+# H1 (largest)
+## H2
+### H3
+#### H4
 
 ![Class Distribution](images/dataset.png)
 
@@ -24,3 +33,6 @@
 
 ![Pie Chart](images/virus_on_models.png)
 ![Pie Chart](images/virus_on_models_aug.png)
+
+
+## Installation
