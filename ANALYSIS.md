@@ -1,21 +1,26 @@
+# Results and Analysis
 
+In this section, I analyze and interpret the results obtained from my three CNN models across different tasks and explain my reasoning on which model to choose and how to optimize it in each case. At the end, I will include how I would continue this project in the future. 
 
 ## Table of Contents
-- [Installation](#installation)
-- [Usage](#usage)
+- [Missclassification](#missclassification)
+- [Dataset distribution](#dataset-distribution)
 - [Contributing](#contributing)
 
+## Missclassification
 
-# H1 (largest)
-## H2
-### H3
-#### H4
+First, we analyze the 
+![Histogramm](images/Histogramm_model_comparision.png)
+
+
+## Dataset distribution
 
 ![Class Distribution](images/dataset.png)
 
+<!--
 ![Image Missclassification](images/image_missclassification.png)
+-->
 
-![Histogramm](images/Histogramm_model_comparision.png)
 ![Histogramm](images/Histogramm_model_comparision_aug.png)
 
 
