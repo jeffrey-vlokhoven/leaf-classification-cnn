@@ -268,7 +268,7 @@ Likewise, in this case we observe a similar conclusion with a different test set
 
 ## Most dangerous class for user-oritented model
 
-In this task, we restrict our model based on it's performance on the two most dangerous classes, because we want to minimize any false negative. These two classes consist of viruses that are incurable, meaning if we don't detect these cases, we are in grave danger. With this in mind, let's choose the optimal model.
+In this task, we restrict our model based on it's performance on the two most dangerous classes because we want to minimize any false negatives. These two classes consist of viruses that are incurable, meaning that if we don't detect these cases, we are in grave danger. With this in mind, let's choose the optimal model.
 
 ![Pie Chart](images/virus_on_models_aug.png)
 
@@ -283,7 +283,7 @@ This concludes the analysis of this project, and depending on which dataset we a
 
 ### How would I continue optimizing
 
-I do not have the resources to create new images, and that is the reason why I am stopping where I currently am. I could do data augmentation, but as I already applied it to my own model, there is no major improvement to be done. However, there is still optimization that can be done, like for the user-oriented scenario, to add this strong data augmentation in the training set for all models. Additionally, we might work on a trade-off with the fact that there is some probability that the user uploads a suboptimal image. For example, every 10 images consist of a suboptimal image, and this does change in model choosing. Does the answer change if we have more suboptimal images, and where is the trade-off, as we know that for the clean original test set the ResNet model performs the best, whereas for the user test set the EfficientNet model performs the best? 
+I do not have the resources to create new images and that is the reason why I am stopping where I currently am. I could do data augmentation but as I already applied it to my own model, there is no major improvement to be done. However, there is still optimization that can be done, like for the user-oriented scenario, to add this strong data augmentation in the training set for all models. Additionally, we might work on a trade-off with the fact that there exists some probability that the user uploads a suboptimal image. For example, every 10th images consist of a suboptimal image, and this does change in model choosing? Does the answer change if we have more suboptimal images, and where is the trade-off, as we know that, for the clean original test set, the ResNet model performs the best whereas for the user test set the EfficientNet model performs the best?
 
 
 
