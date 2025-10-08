@@ -227,6 +227,8 @@ Lets do a similar approach as we did before with optimzing each model by optimzi
   <img src="images/tabular/PieChart2_aug.png" alt="Tabular" style="height: 600px; width: auto;" />
 </p>
 
+In this case it would be classes 12, 5 and 10, we obtain 48.3% of all misclassifications, which would improve our accuracy to 0.771, or 77.05%, when all of these misclassifications are predicted correctly. This would be an increase in model performance of 21.45%. 
+
 #### Model 3: EfficientNet
 
 
@@ -234,6 +236,9 @@ Lets do a similar approach as we did before with optimzing each model by optimzi
   <img src="images/plot_misclassification_pie_efficient_aug.png" alt="Pie Chart" style="height: 600px; width: auto;" />
   <img src="images/tabular/PieChart3_aug.png" alt="Tabular" style="height: 600px; width: auto;" />
 </p>
+
+In this case it would be classes 12, 5 and 10, we obtain 49.9% of all misclassifications, which would improve our accuracy to 0.854, or 85.37%, when all of these misclassifications are predicted correctly. This would be an increase in model performance of 14.57%. 
+
 
 ## Most dangerous class for user-oritented model
 
