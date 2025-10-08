@@ -14,13 +14,32 @@ This project compares model architectures for plant health analysis on the **Pla
 5. [Model Architectures](#model-architectures)  
 6. [Training Details](#training-details)  
 7. [Results](#results)  
-8. [Visualizations](#visualizations)  
-9. [Reproducibility](#reproducibility)  
-10. [Project Structure](#project-structure)  
-11. [Future Work](#future-work)  
-12. [References](#references)  
-13. [License](#license)  
-14. [Author](#author)
+8. [Visualizations](#visualizations)
+9. [Installation](#installation)
+10. [Usage](#usage)
+11. [Reproducibility](#reproducibility)  
+12. [Project Structure](#project-structure)  
+13. [Future Work](#future-work)  
+14. [References](#references)  
+15. [License](#license)  
+16. [Author](#author)
+
+1. Overview
+2. Motivation
+3. Dataset
+4. Preprocessing
+5. Model Architectures
+6. Training Details
+7. Results
+8. Visualizations
+9. Installation ✅
+10. Usage ✅
+11. Reproducibility
+12. Project Structure
+13. Future Work
+14. References
+15. License
+16. Author
 
 ---
 
@@ -140,13 +159,39 @@ This project demonstrates:
 
 ---
 
-## 🧮 Reproducibility
 
-### Installation
+## 🧪 Reproducibility
 
-Clone this repository and install dependencies:
+You can reproduce all experiments by running the notebooks in the following order:
+
+1. `1_data_preprocessing.ipynb` – prepares and augments the dataset  
+2. `2_model_training.ipynb` – trains models (Custom CNN, ResNet, EfficientNet)  
+3. `3_model_evaluation.ipynb` – evaluates model performance and generates plots  
+
+All visualizations are saved in the `images/` folder.
+
+---
+
+## ⚙️ Installation
+
+This project was developed in **Python 3.11** and requires the following main libraries:
+
+- TensorFlow / Keras
+- NumPy
+- Matplotlib
+- scikit-learn
+
+To install dependencies, run:
 
 ```bash
-git clone https://github.com/yourusername/leaf-classification-cnn.git
-cd leaf-classification-cnn
-pip install -r requirements.txt
+pip install tensorflow numpy matplotlib scikit-learn
+```
+
+## 🚀 Usage
+
+After installation, launch Jupyter Notebook:
+
+```bash
+jupyter notebook
+```
+
