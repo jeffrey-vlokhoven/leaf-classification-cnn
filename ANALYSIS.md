@@ -190,26 +190,40 @@ Let's focus now on the misclassification and do a similar analysis with the new 
 
 I divided the classes into three categories: good performing, proportionally worsening, and catastrophic and tried to find any pattern or similarities in these classes for these multi-class features. 
 
-**Good performing classes:** 4, 7, 9 
+**Good performing classes:** 4, 7, 9, 13
+<br>
+These four classes did not get proportionally worse, which is surprising in relation to how much worse the other classes got. What surprises me the most is class 7, as before the data augmentation it was one of the two classes that had the most misclassification, and now it holds its ground and doesn't change as much with the new test set. First I thought about the size of these classes, as 4 and 13 are the most underrepresented classes, so it didn't have a lot to misclassify, making it less proportional, but then the third smallest got a lot worse. It might be true, and it's an outlier, but I assume that is not the case based on the other categorizations, because it would then also imply larger classes would get catastrophically worse, but that is not really the case. So we cannot conclude that size has a say in why it fails to classify with the new dataset. The next step was to look into their health status. We want to see some similarities, but also there we fail to make any conclusion, as this grouping concludes a healthy leaf and a virus leaf. 
 
+**Proportionally worsening classes:** 0, 1, 2, 3, 6, 11
+<br>
+In general, these classes got proportionally worse, which was to be expected with data augmentation. Therefore, we cannot conclude anything specifically, as we know it's not size- and health-related, and it behaves as expected.
 
-**Proportionally worsening classes:** 0, 1, 2, 3, 6, 11, 12, 13
+**Catastrophic classes:** 5, 8, 10, 14
+<br>
+This is the first time we can conclude something, as all classes are for the first time from the same vegetable, tomato. This might also be because it is overrepresented in this dataset, as 10 of 15 classes are tomatoes, but what we can additionally point out is that these four classes have similar looks in my opinion. I am not a leaf expert, so I don't know if we can conclude this, but to my eye they have some similarities. This might come from the fact that they all are tomato leaves, and with the data augmentation, it got exponentially worse because they have similar looks such that it confuses them all together. 
 
-**Catastrophic classes:** 5, 10, 14
+I did not include class 12 in one of these three categories, as I am unable to categorize it. As for ResNet - proportionally worse; for EfficientNet - a good performance; and for my own CNN - catastrophically worse, so there is no common factor to identify this class.
+
+So in the end I am not able to identify a definitve answer why it got worse based on these observations. Let's dive deeper into which classes each model misclassifies and how to optimize them.
 
 #### Model 1: My own CNN
 
+Now it might make sense to utilize my own CNN, as, except for classes 9 and 12, my own CNN behaves similarly to the transfer-learned models (has not doubled the missclassification). Of course overall it performs in general worse across all models, but there also exist some classes, like classes 5, 10, and 11, where my own CNN performs the best. This comes from the fact that for generalization I already utilized a lighter data augmentation, which makes it easier to identify each class, which I did not apply to the transfer learning models. 
 
 <p align="center">
-  <img src="images/plot_misclassification_pie_aug_own.png" alt="Pie Chart" style="height: 600px; width: auto;" />
+  <img src="images/plot_misclassification_pie_own_aug.png" alt="Pie Chart" style="height: 600px; width: auto;" />
   <img src="images/tabular/PieChart1_aug.png" alt="Tabular" style="height: 600px; width: auto;" />
 </p>
+
+
+Lets do a similar approach as we did before with optimzing each model by optimzing the three worse perforiming classes. In this case it would be classes 12, 5 and 10, we obtain 50.9% of all misclassifications, which would improve our accuracy to 0.976, or 97.59%, when all of these misclassifications are predicted correctly. This would be an increase in model performance of 2.5%. 
+
 
 #### Model 2: ResNet
 
 
 <p align="center">
-  <img src="images/plot_misclassification_pie_aug_resnet.png" alt="Pie Chart" style="height: 600px; width: auto;" />
+  <img src="images/plot_misclassification_pie_resnet_aug.png" alt="Pie Chart" style="height: 600px; width: auto;" />
   <img src="images/tabular/PieChart2_aug.png" alt="Tabular" style="height: 600px; width: auto;" />
 </p>
 
@@ -217,7 +231,7 @@ I divided the classes into three categories: good performing, proportionally wor
 
 
 <p align="center">
-  <img src="images/plot_misclassification_pie_aug_efficient.png" alt="Pie Chart" style="height: 600px; width: auto;" />
+  <img src="images/plot_misclassification_pie_efficient_aug.png" alt="Pie Chart" style="height: 600px; width: auto;" />
   <img src="images/tabular/PieChart3_aug.png" alt="Tabular" style="height: 600px; width: auto;" />
 </p>
 
