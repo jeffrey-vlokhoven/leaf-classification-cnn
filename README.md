@@ -24,23 +24,6 @@ This project compares model architectures for plant health analysis on the **Pla
 15. [License](#license)  
 16. [Author](#author)
 
-1. Overview
-2. Motivation
-3. Dataset
-4. Preprocessing
-5. Model Architectures
-6. Training Details
-7. Results
-8. Visualizations
-9. Installation ✅
-10. Usage ✅
-11. Reproducibility
-12. Project Structure
-13. Future Work
-14. References
-15. License
-16. Author
-
 ---
 
 ## 📖 Overview
