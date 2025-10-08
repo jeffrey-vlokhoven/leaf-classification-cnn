@@ -190,11 +190,11 @@ Let's focus now on the misclassification and do a similar analysis with the new 
 
 I divided the classes into three categories: good performing, proportionally worsening, and catastrophic and tried to find any pattern or similarities in these classes for these multi-class features. 
 
-**Good performing classes:** 4, 7, 9, 13
+**Good performing classes:** 4, 6, 7, 9, 13
 <br>
-These four classes did not get proportionally worse, which is surprising in relation to how much worse the other classes got. What surprises me the most is class 7, as before the data augmentation it was one of the two classes that had the most misclassification, and now it holds its ground and doesn't change as much with the new test set. First I thought about the size of these classes, as 4 and 13 are the most underrepresented classes, so it didn't have a lot to misclassify, making it less proportional, but then the third smallest got a lot worse. It might be true, and it's an outlier, but I assume that is not the case based on the other categorizations, because it would then also imply larger classes would get catastrophically worse, but that is not really the case. So we cannot conclude that size has a say in why it fails to classify with the new dataset. The next step was to look into their health status. We want to see some similarities, but also there we fail to make any conclusion, as this grouping concludes a healthy leaf and a virus leaf. 
+These five classes did not get proportionally worse, which is surprising in relation to how much worse the other classes got. What surprises me the most is class 7, as before the data augmentation it was one of the two classes that had the most misclassification, and now it holds its ground and doesn't change as much with the new test set. First I thought about the size of these classes, as 4 and 13 are the most underrepresented classes, so it didn't have a lot to misclassify, making it less proportional, but then the third smallest got a lot worse. It might be true, and it's an outlier, but I assume that is not the case based on the other categorizations, because it would then also imply larger classes would get catastrophically worse, but that is not really the case. So we cannot conclude that size has a say in why it fails to classify with the new dataset. The next step was to look into their health status. We want to see some similarities, but also there we fail to make any conclusion, as this grouping concludes a healthy leaf and a virus leaf. 
 
-**Proportionally worsening classes:** 0, 1, 2, 3, 6, 11
+**Proportionally worsening classes:** 0, 1, 2, 3, 11
 <br>
 In general, these classes got proportionally worse, which was to be expected with data augmentation. Therefore, we cannot conclude anything specifically, as we know it's not size- and health-related, and it behaves as expected.
 
@@ -216,7 +216,7 @@ Now it might make sense to utilize my own CNN, as, except for classes 9 and 12, 
 </p>
 
 
-Lets do a similar approach as we did before with optimzing each model by optimzing the three worse perforiming classes. In this case it would be classes 12, 5 and 10, we obtain 50.9% of all misclassifications, which would improve our accuracy to 0.976, or 97.59%, when all of these misclassifications are predicted correctly. This would be an increase in model performance of 2.5%. 
+Lets do a similar approach as we did before with optimzing each model by optimzing the three worse perforiming classes. In this case it would be classes 12, 5 and 10, we obtain 41% of all misclassifications, which would improve our accuracy to 0.681, or 68.08%, when all of these misclassifications are predicted correctly. This would be an increase in model performance of 22.18%. 
 
 
 #### Model 2: ResNet
