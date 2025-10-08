@@ -9,6 +9,7 @@ In this section, we analyze and interpret the results obtained from my three CNN
 - [Optimizing most dangerous classes](#optimizing-most-dangerous-classes)
 - [User-oritented model performance](#user-oritented-model-performance)
 - [Most dangerous class for user-oritented model](#most-dangerous-class-for-user-oritented-model)
+- [Future improvements](#future-improvements)
 
 ### What questions are we analysing?
 
