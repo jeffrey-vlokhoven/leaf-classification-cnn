@@ -1,4 +1,12 @@
 # Git LFS tracking for large files
-
 data/* filter=lfs diff=lfs merge=lfs -text
 *.zip filter=lfs diff=lfs merge=lfs -text
+
+# Handle text files consistently
+* text=auto
+*.py text eol=lf
+*.ipynb binary
+*.png binary
+*.jpg binary
+*.csv linguist-vendored
+*.json linguist-vendored
