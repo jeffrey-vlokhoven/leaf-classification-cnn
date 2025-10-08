@@ -70,37 +70,80 @@ Even though this model performs the worst out of three models, it will still be 
   <img src="images/tabular/PieChart1.png" alt="Tabular" style="height: 600px; width: auto;" />
 </p>
 
-The first thing that stands out is the fact that the most misclassification of all classes across all my models is from my own CNN on class 7 with 28.1%. More than a quarter of misclassifications are from class 7, so improving this aspect would improve this model drastically. If we combine classes 6, 7, and 10, it amounts to 57.6% of overall misclassification, so improving just these three classes and optimizing them such that all predictions are correct would improve the model to a new accuracy of 0.957, or 95.67%, which is an increase of 5% of model performance. This conclusion is one reason for not selecting this model, as after this optimization, it would achieve similar performance as our already existing transfer learning models without optimization. 
+The first thing that stands out is the fact that the most misclassification of all classes across all my models is from my own CNN on class 7 with 28.1% with 59 missclassification. More than a quarter of misclassifications are from class 7, so improving this aspect would improve this model drastically. If we combine classes 6, 7, and 10, it amounts to 57.6% of overall misclassification, so improving just these three classes and optimizing them such that all predictions are correct would improve the model to a new accuracy of 0.957, or 95.67%, which is an increase of 5% of model performance. This conclusion is one reason for not selecting this model, as after this optimization, it would achieve similar performance as our already existing transfer learning models without optimization. 
 
 The overall process is the same for how to optimize each model, but it depends on the misclassification of each model. In each case we focus on the most misclassified classes and try to optimize them. Of course, the actual cost of optimizating each class may vary, like how expensive each gathering of an additional image would be. For simplification, I assume each cost is similar over all classes, which is not the case, as it is easier to get an additional image of a healthy potato leaf than of a specific mosaic virus on a tomato, but we don't have that information on how expensive it would be to perform these datasets. Therefore, for this analysis, I simplify the process and decide that each costs the same in creating an additional image. Having established that fact, I would gather more images of these classes of misclassification, so in this case classes 6, 7, and 10. The question is how many images should you gather? The simple answer is to get as much as possible because the more pictures, the better the model generalizes, resulting in more accurate predictions. For the first step of image gathering, I would try to get for each of these classes as many images as our current highest class, which is *Tomato_Yellow_Curl_Virus* with 2566, and move from there. If getting more images isn't applicable, the next logical step would be data augmentation, meaning taking an existing image of that class and resizing, zooming, or changing contrast or brightness. This won't generalize as well as getting a new image but still will improve the model. Furthermore, there also exist learning rate mechanisms to improve generalization in finding the global maximum, but these are already established in our models. So the best approach is to get more data or even try a different approach, as we see in the next model with transfer learning. 
 
 #### Model 2: ResNet
 
+Analysing the missclassifcation of our first transfer learning model ResNet. 
 
 <p align="center">
   <img src="images/plot_misclassification_pie_resnet.png" alt="Pie Chart" style="height: 600px; width: auto;" />
   <img src="images/tabular/PieChart2.png" alt="Tabular" style="height: 600px; width: auto;" />
 </p>
 
+The first observation is that class 7, which had the highest misclassification for my own CNN, isn't the highest for the ResNet model. It's in fact the second. The most misclassified class was class 11 with 22.06% with 15 samples, which is a quarter of the misclassification of my own CNN on the highest misclassified class. Talking only about the three highest misclassified classes 11, 7 and 10, we obtain 58.8% of all misclassifications, which would improve our accuracy to 0.986, or 98.64%, when all of these misclassifications are predicted correctly. This would be an increase in model performance of 1.9%. It may seem small but in fact is significant when we are working at 90 percent accuracy. 
+
 #### Model 3: EfficientNet
 
+Analysing the missclassifcation of our last model EfficientNet. 
 
 <p align="center">
   <img src="images/plot_misclassification_pie_efficient.png" alt="Pie Chart" style="height: 600px; width: auto;" />
   <img src="images/tabular/PieChart3.png" alt="Tabular" style="height: 600px; width: auto;" />
 </p>
 
+The first observation is that both ResNet and EfficientNet perform the worst on classes 11 and 7. The EfficientNet is a slightly worse in comparison to the ResNet, but we can conclude based on these observations that there might exist underlying similar features across multiple classes. They don't have to be with each other, but there might exist such features, as both have different architectures but have similar misclassifications. So, if we improve the distinction of these features, we would be able to optimize multiple classes at once. Taking again the three highest missclassified classes 11, 7 and 9, we obtain 50.9% of all misclassifications, which would improve our accuracy to 0.976, or 97.59%, when all of these misclassifications are predicted correctly. This would be an increase in model performance of 2.5%. 
 
-### Optimizing most dangerous classes
+### Conclusion on optimizing the three worst class misclassifications
+
+So even when optimizing each model for the three worst class misclassifications, the result stays the same: we should continue optimizing the ResNet model. Interesting to note is the fact that in general we observe that the most misclassified classes are 7 and 11, but if we look at class distribution, both classes are well represented, not over- or underrepresented, strengthening the fact again that such a multiple-class feature exists. 
+
+<table>
+  <tr>
+    <th>Model</th>
+    <th>Accuracy</th>
+  </tr>
+  <tr>
+    <td>own CNN</td>
+    <td>0.957</td>
+  </tr>
+  <tr>
+    <td>ResNet50</td>
+    <td>0.986</td>
+  </tr>
+  <tr>
+    <td>EfficientNetB0</td>
+    <td>0.976</td>
+  </tr>
+</table>
+
+*Chosen model: ResNet50*
+
+## Optimizing most dangerous classes
+
+In this task, we restrict our model based on its performance on the two most dangerous classes, because we want to minimize any false negative. These two classes consist of viruses that are incurable, meaning if we don't detect these cases, we are in great danger. With this in mind, let's choose the optimal model. 
 
 ![Pie Chart](images/virus_on_models.png)
 
+This pie chart clearly confirms that our previous model choice remains appropriate, because in both cases the ResNet performs the best of all models.
+
+*Chosen model: ResNet50*
 
 ## User-oritented model performance  
 
-![Histogramm](images/Histogramm_model_comparision_aug.png)
+The question follows from the fact that our dataset is well-constructed and carefully organized, but this might not represent real-world images from users. Would users be able to replicate these high-quality images with similar quality such that they don't deviate much from the distribution class? So let's analyze how our choice of model would change if we adopted a more user-realistic scenario. 
 
-![Image augmentation](images/image_difference.png)
+#### How do I acheive this user-realistic scenario
+
+I utilized the built-in data augmentation from TensorFlow Keras, where I flip, rotate, zoom, change contrast and brightness, and add some noise to the existing test image and observe how well each model performs on this new test set. The following images show five examples of the new test set. 
+
+<p align="center">
+  <img src="images/image_difference.png" alt="Image augmentation" style="height: auto; width: auto;" />
+</p>
+
+### What are the performances of our models with the new test set?
 
 <table>
   <tr>
@@ -125,7 +168,34 @@ The overall process is the same for how to optimize each model, but it depends o
   </tr>
 </table>
 
+We notice that across all models the performance got worse, which makes sense as this test set is based on a different distribution class. Surprisingly, EfficientNet performs the best of all models. My initial thought was that it would get worse proportionally, which is not the case, as EfficientNet performs far superior to the other two models, in addition to having a much higher confidence. This could be argued with the fact that the pre-trained weight can adapt better to augmented data. So if we had to choose a model based on a user-oriented scenario, we would choose and optimize EfficientNet. 
+
 *Chosen model: EfficientNetB0*
+
+Let's focus now on the misclassification and do a similar analysis with the new dataset. Having seen the difference in a specific image, what is the difference in misclassification across all classes, and can we notice any patterns? 
+
+<p align="center">
+  <img src="images/Histogramm_model_comparision.png" alt="Histogram" style="height: auto; width: auto;" />
+</p>
+<p align="right"> 
+  Original testset
+</p>
+<br>
+<p align="center">
+  <img src="images/Histogramm_model_comparision_aug.png" alt="Histogram" style="height: auto; width: auto;" />
+</p>
+<p align="right"> 
+  Augmented testset
+</p>
+
+I divided the classes into three categories: good performing, proportionally worsening, and catastrophic and tried to find any pattern or similarities in these classes for these multi-class features. 
+
+**Good performing classes:** 4, 7, 9 
+
+
+**Proportionally worsening classes:** 0, 1, 2, 3, 6, 11, 12, 13
+
+**Catastrophic classes:** 5, 10, 14
 
 #### Model 1: My own CNN
 
@@ -152,5 +222,9 @@ The overall process is the same for how to optimize each model, but it depends o
 </p>
 
 ## Most dangerous class for user-oritented model
+
 ![Pie Chart](images/virus_on_models_aug.png)
+
+
+## Waht will I do now in the future and how would I procide if I could
 
