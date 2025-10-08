@@ -218,27 +218,51 @@ Now it might make sense to utilize my own CNN, as, except for classes 9 and 12, 
 
 Lets do a similar approach as we did before with optimzing each model by optimzing the three worse perforiming classes. In this case it would be classes 12, 5 and 10, we obtain 41% of all misclassifications, which would improve our accuracy to 0.681, or 68.08%, when all of these misclassifications are predicted correctly. This would be an increase in model performance of 22.18%. 
 
-
 #### Model 2: ResNet
 
+Analysing the missclassifcation on the ResNet model. 
 
 <p align="center">
   <img src="images/plot_misclassification_pie_resnet_aug.png" alt="Pie Chart" style="height: 600px; width: auto;" />
   <img src="images/tabular/PieChart2_aug.png" alt="Tabular" style="height: 600px; width: auto;" />
 </p>
 
-In this case it would be classes 12, 5 and 10, we obtain 48.3% of all misclassifications, which would improve our accuracy to 0.771, or 77.05%, when all of these misclassifications are predicted correctly. This would be an increase in model performance of 21.45%. 
+Optimizing the three most miscclassified classes, which are classes 5, 10 and 11, we obtain 48.3% of all misclassifications, which would improve our accuracy to 0.771, or 77.05%, when all of these misclassifications are predicted correctly. This would be an increase in model performance of 21.45%. 
 
 #### Model 3: EfficientNet
 
-
+Analysing the missclassification on the last model - EfficientNet. 
 <p align="center">
   <img src="images/plot_misclassification_pie_efficient_aug.png" alt="Pie Chart" style="height: 600px; width: auto;" />
   <img src="images/tabular/PieChart3_aug.png" alt="Tabular" style="height: 600px; width: auto;" />
 </p>
 
-In this case it would be classes 12, 5 and 10, we obtain 49.9% of all misclassifications, which would improve our accuracy to 0.854, or 85.37%, when all of these misclassifications are predicted correctly. This would be an increase in model performance of 14.57%. 
+In this case it would be classes 10,5 and 11, we obtain 49.9% of all misclassifications, which would improve our accuracy to 0.854, or 85.37%, when all of these misclassifications are predicted correctly. This would be an increase in model performance of 14.57%. 
 
+
+### Conclusion on optimizing the three worst class misclassifications
+
+Notice classes 5 10 are equally worse on all 12 worse on own 11 better on own
+<table>
+  <tr>
+    <th>Model</th>
+    <th>Accuracy</th>
+  </tr>
+  <tr>
+    <td>own CNN</td>
+    <td>0.681</td>
+  </tr>
+  <tr>
+    <td>ResNet50</td>
+    <td>0.771</td>
+  </tr>
+  <tr>
+    <td>EfficientNetB0</td>
+    <td>0.854</td>
+  </tr>
+</table>
+
+*Chosen model: EfficientNetB0*
 
 ## Most dangerous class for user-oritented model
 
