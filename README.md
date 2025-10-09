@@ -126,7 +126,7 @@ model_resnet = models.Sequential([
 ## Results
 The following section shows my test results of my three models on two test sets.
 
-**Original test set:**
+### Original test set:
 <table>
     <thead>
       <tr><th>Model</th><th>Accuracy</th><th>Loss</th></tr>
@@ -144,7 +144,7 @@ Model Comparison on Dangerous Virus Classes:
   <img src="images/virus_on_models.png" alt="virus pie chart" style="height: auto; width: auto;" />
 </p>
 
-**Augmented test set: (user-oriented)**
+### Augmented test set: (user-oriented)
 <table>
     <thead>
       <tr><th>Model</th><th>Accuracy</th><th>Loss</th></tr>
