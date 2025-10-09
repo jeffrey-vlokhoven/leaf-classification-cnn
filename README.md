@@ -45,11 +45,12 @@ This project demonstrates:
 
 ## Dataset
 
-- **Source:** [PlantVillage Dataset](https://www.kaggle.com/datasets/emmarex/plantdisease)  
-- **Classes:** 10 leaf categories (9 diseased + 1 healthy)  
-- **Image Resolution:** 224×224 pixels  
+- **Source:** [Plant Village Dataset](https://www.kaggle.com/datasets/arjuntejaswi/plant-village)  
+- **Classes:** 15 leaf classes (2 pepper, 3 potato, and 10 tomato)  
+- **Image Resolution:** 256×256 pixels
 - **Format:** RGB  
-- **Split:** 80% train / 10% validation / 10% test  
+- **Split:** 80% train / 10% validation / 10% test
+- **Size:** 16,510 images
 
 **Class Distribution:**
 
