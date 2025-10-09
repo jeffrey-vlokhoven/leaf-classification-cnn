@@ -201,7 +201,7 @@ All visualizations are saved in the `images/` folder.
 Below is an overview of the repository layout:
 
 ```
-my-project/
+leaf-classification-cnn/
 ├── data/
 │ └──archive.zip
 ├── images/
