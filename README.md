@@ -212,10 +212,12 @@ leaf-classification-cnn/
 │ └──PlanetVillage.ipynb
 │ └──comparison.ipynb
 │ └──transferLearning.ipynb
+├── .gitattributes
 ├── ANALYSIS.md
 ├── LICENSE
 ├── README.md
 ```
+
 
 ## Future Work
 
