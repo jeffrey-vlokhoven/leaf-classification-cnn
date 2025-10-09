@@ -30,26 +30,14 @@ Before beginning to analyze each task, it is important to note that the distribu
 We observe that ResNet and EfficientNet perform much better than my own constructed CNN. ResNet performs 1.6% better in the accuracy test than EfficientNet, meaning if we just look at which model performs the best, we would choose and optimize ResNet. Additionally, we notice that ResNet is more confident in these decisions than EfficientNet and my own CNN, strengthening the decision to choose the ResNet model. Furthermore, we notice that both transfer models (ResNet and EfficientNet) perform superior to my own CNN, showcasing the strength of pretrained models. It took me a while to construct an acceptable CNN, whereas with transfer learning, it took me minutes. With this in mind, if applicable, utilize transfer learning.
 
 <table>
-  <tr>
-    <th>Model</th>
-    <th>Accuracy</th>
-    <th>Loss</th>
-  </tr>
-  <tr>
-    <td>own CNN</td>
-    <td>0.898</td>
-    <td>0.407</td>
-  </tr>
-  <tr>
-    <td>ResNet50</td>
-    <td>0.967</td>
-    <td>0.120</td>
-  </tr>
-  <tr>
-    <td>EfficientNetB0</td>
-    <td>0.951</td>
-    <td>0.156</td>
-  </tr>
+    <thead>
+      <tr><th>Model</th><th>Accuracy</th><th>Loss</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>own CNN</td><td>0.898</td><td>0.407</td></tr>
+      <tr><td>ResNet50</td><td>0.967</td><td>0.120</td></tr>
+      <tr><td>EfficientNetB0</td><td>0.951</td><td>0.156</td></tr>
+    </tbody>
 </table>
 
 *Chosen model: ResNet50*
@@ -101,23 +89,16 @@ The first observation is that both ResNet and EfficientNet perform the worst on 
 
 So even when optimizing each model for the three worst class misclassifications, the result stays the same: we should continue optimizing the ResNet model. The thought process behind this is to check if one class dominates a model and if improvement could alter our answer. Interesting to note is the fact that in general, we observe that the most misclassified classes are 7 and 11, but if we look at class distribution, both classes are well represented, not over- or underrepresented, strengthening the fact again that such a multiple-class feature exists.
 
+
 <table>
-  <tr>
-    <th>Model</th>
-    <th>Accuracy</th>
-  </tr>
-  <tr>
-    <td>own CNN</td>
-    <td>0.957</td>
-  </tr>
-  <tr>
-    <td>ResNet50</td>
-    <td>0.986</td>
-  </tr>
-  <tr>
-    <td>EfficientNetB0</td>
-    <td>0.976</td>
-  </tr>
+    <thead>
+      <tr><th>Model</th><th>Accuracy</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>own CNN</td><td>0.957</td></tr>
+      <tr><td>ResNet50</td><td>0.986</td></tr>
+      <tr><td>EfficientNetB0</td><td>0.976</td></tr>
+    </tbody>
 </table>
 
 *Chosen model: ResNet50*
@@ -147,26 +128,14 @@ I utilized the built-in data augmentation from TensorFlow Keras, where I flip, r
 ### What are the performances of our models with the new test set?
 
 <table>
-  <tr>
-    <th>Model</th>
-    <th>Accuracy</th>
-    <th>Loss</th>
-  </tr>
-  <tr>
-    <td>own CNN</td>
-    <td>0.459</td>
-    <td>3.496</td>
-  </tr>
-  <tr>
-    <td>ResNet50</td>
-    <td>0.556</td>
-    <td>2.814</td>
-  </tr>
-  <tr>
-    <td>EfficientNetB0</td>
-    <td>0.708</td>
-    <td>1.003</td>
-  </tr>
+    <thead>
+      <tr><th>Model</th><th>Accuracy</th><th>Loss</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>own CNN</td><td>0.459</td><td>3.496</td></tr>
+      <tr><td>ResNet50</td><td>0.556</td><td>2.814</td></tr>
+      <tr><td>EfficientNetB0</td><td>0.708</td><td>1.003</td></tr>
+    </tbody>
 </table>
 
 We notice that across all models the performance got worse, which makes sense as this test set is based on a different distribution class. Surprisingly, EfficientNet performs the best out of all models. My initial thought was that it would get worse proportionally, which is not the case, as EfficientNet performs far superior to the other two models, in addition to having much higher confidence. This could be argued with the fact that the pre-trained weight can adapt better to augmented data. So if we had to choose a model based on a user-oriented scenario, we would choose and optimize EfficientNet.
@@ -246,22 +215,14 @@ In this case it would be classes 10,5 and 11, we obtain 49.9% of all misclassifi
 Likewise, in this case we observe a similar conclusion with a different test set, in the sense that when optimizing the worst class misclassifications, the result stays the same. Noteworthy, in general, we observe that the most misclassified classes are 5 and 10, which deviate from the answer of the original test set, which was 7 and 11. This might conclude that we created some multi-class feature with the new test set, as now we have two new worst-performing classes.
 
 <table>
-  <tr>
-    <th>Model</th>
-    <th>Accuracy</th>
-  </tr>
-  <tr>
-    <td>own CNN</td>
-    <td>0.681</td>
-  </tr>
-  <tr>
-    <td>ResNet50</td>
-    <td>0.771</td>
-  </tr>
-  <tr>
-    <td>EfficientNetB0</td>
-    <td>0.854</td>
-  </tr>
+    <thead>
+      <tr><th>Model</th><th>Accuracy</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>own CNN</td><td>0.681</td></tr>
+      <tr><td>ResNet50</td><td>0.771</td></tr>
+      <tr><td>EfficientNetB0</td><td>0.854</td></tr>
+    </tbody>
 </table>
 
 *Chosen model: EfficientNetB0*
