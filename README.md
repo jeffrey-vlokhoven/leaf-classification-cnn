@@ -1,7 +1,7 @@
 # 🌿 Leaf Disease Classification using CNN
 
 Identify and classify the health condition of plant leaves using **Custom CNN** and Transfer Learning** (ResNet50, EfficientNetB0).
-This project compares the efficiency efficiency of model architectures on the **Planet Village Dataset** using augmentation, evaluation metrics, and visual analysis. 
+This project compares the efficiency of model architectures on the **Planet Village Dataset** using augmentation, evaluation metrics, and visual analysis. 
 
 ---
 
