@@ -1,7 +1,6 @@
 # 🌿 Leaf Disease Classification using CNN
 
-Identify and classify the health condition of plant leaves using **Custom CNN** and Transfer Learning** (ResNet50, EfficientNetB0).
-This project compares the efficiency of model architectures on the **Planet Village Dataset** using augmentation, evaluation metrics, and visual analysis. 
+This project aims to identify and classify the health conditions of plant leaves using **Custom CNN** and **Transfer Learning** (ResNet50, EfficientNetB0). This project compares the efficiency of model architectures on the **Planet Village Dataset** using augmentation, evaluation metrics, and visual analysis.
 
 ---
 
@@ -23,9 +22,9 @@ This project compares the efficiency of model architectures on the **Planet Vill
 ## Overview
 
 This repository presents a **deep learning pipeline** for classifying healthy and diseased plant leaves. 
-The project aims to optimize disease detection to prevent agricultural losses and improve quality of life. 
+Additionally, this project also aims to optimize disease detection to prevent agricultural losses and improve quality of life.
 
-We implement and compare: 
+We implement and compare:
 - A **Custom CNN** designed from scratch.
 - **Transfer Learning models:** ResNet50 and EfficientNetB0
 
@@ -33,7 +32,7 @@ We implement and compare:
 
 ## Motivation
 
-Plant diseases have a crucial impact on agricultural productivity worldwide. Manual disease identification is low and prone to human error, and the solution are deep learning models which automate the process and make accurate predictions.
+Plant diseases have a crucial impact on agricultural productivity worldwide. Manual disease identification is low and prone to human error and the solution are deep learning models which automate the process and make accurate predictions.
 
 This project demonstrates:
 - How to apply CNNs and transfer learning to image classification problems.
@@ -92,7 +91,7 @@ outputs = Dense(len(class_names), activation='softmax')(x)
 
 ### 2️⃣ Transfer Learning
 ResNet50 and EfficientNetB0 have the same ending design structure. 
-In general, 
+In general:
 - **Resize:** 224×224 (to match model input size)
 - **Pretrained Weights:** ImageNet
 - **Frozen Base:** Only the classifier head is trained
@@ -220,7 +219,7 @@ leaf-classification-cnn/
 
 ## Future Work
 
-We can explore the trade-off between high-quality (original) images and user-quality (augmented) images, as depending on the data set we select different models. 
+We can explore the trade-off between high-quality (original) images and user-quality (augmented) images and depending on the data set we select different models.
 
 For detailed reasoning and motivation, see the last section of [Analysis](analysis.md).
 
